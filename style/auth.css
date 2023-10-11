@@ -55,6 +55,13 @@ form button:disabled{
     cursor: not-allowed;
 }
 
+form button .lds-ring{
+    display: none;
+}
+
+form button:disabled .lds-ring{
+    display: inline-block;
+}
 
 .lds-ring {
     display: inline-block;
