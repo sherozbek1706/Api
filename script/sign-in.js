@@ -3,7 +3,8 @@ const $form = document.querySelector("#form"),
   $passwordInput = $form.querySelector("#password"),
   $emailMessage = $form.querySelector("[data-message-email]"),
   $passwordMessage = $form.querySelector("[data-message-password]"),
-  $mainMessage = $form.querySelector("[data-main-message]");
+  $mainMessage = $form.querySelector("[data-main-message]"),
+  $btn = $form.querySelector("button");
 
 const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
 const PASSWORD_REGEX = /[a-zA-Z0-9]{8,}/;
@@ -37,6 +38,7 @@ async function createNewUser(e) {
 
   if (isEmailValid && isPasswordValid) {
     try {
+      $btn.setAttribute("disabled", true)
       const response = await axios.post(
         `http://localhost:3000/api/auth/signin`,
         {
@@ -48,10 +50,11 @@ async function createNewUser(e) {
         }
       );
 
-      console.log(response.data);
+      console.log(response);
       if(response.status === 200){
+        $btn.removeAttribute("disabled");
         localStorage.setItem("token", response.data.token)
-        // location.replace(location.origin+"/pages/sign-in.html")
+        // location.replace(location.origin+"/pages/dashboard.html") 
       }
     } catch (err) {
       console.log(err);
