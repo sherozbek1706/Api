@@ -49,3 +49,8 @@ form button{
 form input +p{
     display: none;
 }
+
+form button:disabled{
+    opacity: .5;
+    cursor: not-allowed;
+}
