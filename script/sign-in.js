@@ -54,7 +54,7 @@ async function createNewUser(e) {
       if(response.status === 200){
         $btn.removeAttribute("disabled");
         localStorage.setItem("token", response.data.token)
-        // location.replace(location.origin+"/pages/dashboard.html") 
+        location.replace(location.origin+"/pages/dashboard.html") 
       }
     } catch (err) {
       console.log(err);
