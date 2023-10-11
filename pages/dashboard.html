@@ -1,13 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-</head>
-<body>
+    <link rel="stylesheet" href="../style/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <script src="../script/dashboard.js" defer></script>
+  </head>
+  <body>
+    <div class="dashboard-wrapper">
+      <aside>
+        <h1>Dashboard</h1>
 
-    <h1>Dashboard</h2>
-    
-</body>
+        <div class="sidebar__profile">
+          <img
+            src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"
+            alt="profil img"
+          />
+
+          <div class="profile__info">
+            <strong>John Doe</strong>
+            <small>User</small>
+          </div>
+        </div>
+        <ul class="sidebar__menu">
+          <li class="menu__item"><a href="./dashboard.html?page=create">Create real estate</a></li>
+          <li class="menu__item"><a href="./dashboard.html?page=all">All real estates</a></li>
+          <li class="menu__item"><a href="./dashboard.html?page=manage">Manage real estates</a></li>
+        </ul>
+        <button class="sidebar__signout">Sign Out</button>
+      </aside>
+
+      <main>
+
+        <div id="create-content" class="create-content">
+          <h1>Create real estates</h1>
+        </div>
+
+        <div id="all-content" class="all-content">
+          <h1>All real estates</h1>
+        </div>
+
+        <div id="main-content" class="main-content">
+          <h1>Main reeal estates</h1>
+        </div>
+        
+      </main>
+    </div>
+  </body>
 </html>
