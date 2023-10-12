@@ -188,11 +188,11 @@ main {
   visibility: hidden;
   opacity: 0;
   visibility: hidden;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .modal-delete {
-  transition: 0.3s;
+  transition: 0.5s;
   background-color: #fff;
   position: absolute;
   top: 50%;
@@ -200,7 +200,7 @@ main {
   transform: translate(-50%, -50%) scale(0.1);
   opacity: 0;
   visibility: hidden;
-  width: 0;
+  max-width: 45px;
   height: 0;
   width: 100%;
   display: flex;
@@ -239,6 +239,10 @@ main {
   height: 300px;
   transform: translate(-50%, -50%) scale(1);
 
+}
+
+#modal-delete-close{
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 1898px) {
