@@ -3,6 +3,10 @@ const $sidebarMenuItems = document.querySelectorAll(".sidebar__menu a");
 const $mainContents = document.querySelectorAll("main > div")
 const userId = JSON.parse(atob(localStorage.getItem("token").split(".")[1])).id;
 const $allContent = document.querySelector("#all-content")
+const $modalDeleteWrapper = document.querySelector(".modal-delete-wrapper")
+const $modalDelete = document.querySelector(".modal-delete")
+const $modalDeleteClose = document.querySelector("#modal-delete-close")
+
 
 $sidebarMenuItems.forEach((sidebarLink) => {
   if (sidebarLink.href.includes(currentPage)) {
@@ -22,7 +26,6 @@ async function fetchData(endpoint){
 }
 
 function renderAllRealEstatedata(data){
-    console.log(data);
     const allrealEstateFragment = document.createDocumentFragment();
     data.map(realestate => {
         const $realEstateCardItem = document.createElement("div");
@@ -45,8 +48,16 @@ function renderAllRealEstatedata(data){
 
 $allContent.addEventListener("click", (e) => {
     if(e.target.closest("#card-delete")){
-        console.log(clicked);
+        $modalDeleteWrapper.classList.add("modal-delete-wrapper-active")
+        $modalDelete.classList.add("modal-delete-active")
+        
     }
+})
+
+$modalDeleteClose.addEventListener('click', (e) => {
+    $modalDeleteWrapper.classList.remove("modal-delete-wrapper-active")
+    $modalDelete.classList.remove("modal-delete-active")
+        
 })
 
 switch(currentPage){
