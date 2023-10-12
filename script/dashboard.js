@@ -30,19 +30,28 @@ function renderAllRealEstatedata(data){
         $realEstateCardItem.innerHTML = `
             <img src="${realestate.imageUrls[0]}"  alt="${realestate.description}"/>
             <h3>${realestate.name}</h3>
-            <p>${realestate.description.split(" ").splice(0, 20)}</p>
+            <p>${realestate.description.split(" ").splice(0, 15)}</p>
             <strong>$${realestate.regularPrice}</strong>
+            <div class="card__button-wrapper">
+                <button>Edit</button>
+                <button id="card-delete">Delete</button>
+            </div>
+
         `;
         allrealEstateFragment.appendChild($realEstateCardItem)
     })
     $allContent.appendChild(allrealEstateFragment)
 }
 
+$allContent.addEventListener("click", (e) => {
+    if(e.target.closest("#card-delete")){
+        console.log(clicked);
+    }
+})
+
 switch(currentPage){
     case "all":
         fetchData("/listing/get")
     break;
-    case "manage":
-        // 
-    break;
+
 }
